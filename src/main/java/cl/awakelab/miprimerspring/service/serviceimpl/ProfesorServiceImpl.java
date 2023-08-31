@@ -48,7 +48,7 @@ public class ProfesorServiceImpl implements IProfesorService {
     }
 
     @Override
-    public void eliminarProfesor(Profesor profesor) {
+    public void eliminarProfesor2(Profesor profesor) {
         objProfesorRepo.delete(profesor);
     }
 }

@@ -12,5 +12,5 @@ public interface IUsuarioService {
     public List<Usuario> listarUsuario();
     public Usuario devolverUsuarioId(int id);
     public void eliminarUsuario(int id);
-    public void eliminarUsuario(Usuario usuario);
+    public void eliminarUsuario2(Usuario usuario);
 }

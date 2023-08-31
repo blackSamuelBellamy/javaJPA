@@ -22,20 +22,18 @@ public class UsuarioRestController {
     }
 
     @PostMapping
-    public Usuario actualizarUsuario(int id, Usuario usuario){
+    public Usuario actualizarUsuario(@RequestBody int id, Usuario usuario){
         return objUsuarioService.actualizarUsuario(id, usuario);
     }
 
     @PostMapping
-    public Usuario devolverUsuarioId(int id){
+    public Usuario devolverUsuarioId(@RequestBody int id){
         return objUsuarioService.devolverUsuarioId(id);
     }
-    public void eliminarUsuario(int id) {
+    public void eliminarUsuario(@RequestBody int id) {
         objUsuarioService.eliminarUsuario(id);
     }
-    public void eliminarUsuario(Usuario usuario){
-        objUsuarioService.eliminarUsuario(usuario);
-    }
+    public void eliminarUsuario2(@RequestBody Usuario usuario) {objUsuarioService.eliminarUsuario2(usuario);}
 
 }
 

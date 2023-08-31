@@ -10,5 +10,5 @@ public interface IProfesorService {
     public List<Profesor> listarProfesores();
     public Profesor devolverProfesorId(int id);
     public void eliminarProfesor(int id);
-    public void eliminarProfesor(Profesor profesor);
+    public void eliminarProfesor2(Profesor profesor);
 }
