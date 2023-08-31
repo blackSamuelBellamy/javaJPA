@@ -21,8 +21,12 @@ public class CursoServiceImpl implements ICursoService {
     }
 
     @Override
-    public Curso actualizarCurso(int id) {
-        return null;
+    public Curso actualizarCurso(int id, Curso cursoActualizar) {
+        Curso cursoEncontrado = objCursoRepo.findById(id).orElse(null);
+        cursoEncontrado.setNombreCurso(cursoActualizar.getNombreCurso());
+        cursoEncontrado.setListaAlumnos(cursoActualizar.getListaAlumnos());
+        cursoEncontrado.setListaProfesores(cursoActualizar.getListaProfesores());
+        return objCursoRepo.save(cursoEncontrado);
     }
 
     @Override
@@ -34,11 +38,16 @@ public class CursoServiceImpl implements ICursoService {
 
     @Override
     public Curso devolverCursoId(int id) {
-        return null;
+        return objCursoRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarCurso(int id) {
 
+    }
+
+    @Override
+    public void elminarCurso2(Curso curso) {
+        objCursoRepo.delete(curso);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("alumnoserviceImpl")
+@Service("alumnoServiceImpl")
 public class AlumnoServiceImpl implements IAlumnoService {
     @Autowired
     IAlumnoRepository objAlumnorepo;
@@ -21,8 +21,13 @@ public class AlumnoServiceImpl implements IAlumnoService {
     }
 
     @Override
-    public Alumno actualizarAlumno(int id) {
-        return null;
+    public Alumno actualizarAlumno(int id, Alumno alumnoActualizar) {
+        Alumno alumnoEncontrado = objAlumnorepo.findById(id).orElse(null);
+        alumnoEncontrado.setNombres(alumnoActualizar.getNombres());
+        alumnoEncontrado.setApellido1(alumnoActualizar.getApellido1());
+        alumnoEncontrado.setApellido2(alumnoActualizar.getApellido2());
+        alumnoEncontrado.setCursoAsignado(alumnoActualizar.getCursoAsignado());
+        return objAlumnorepo.save(alumnoEncontrado);
     }
 
     @Override
@@ -33,12 +38,17 @@ public class AlumnoServiceImpl implements IAlumnoService {
     }
 
     @Override
-    public Alumno devolverAlumnoId() {
-        return null;
+    public Alumno devolverAlumnoId(int id) {
+        return objAlumnorepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarAlumno(int id) {
+        objAlumnorepo.deleteById(id);
+    }
 
+    @Override
+    public void elminarAlumno2(Alumno alumno) {
+        objAlumnorepo.delete(alumno);
     }
 }

@@ -21,8 +21,13 @@ public class ProfesorServiceImpl implements IProfesorService {
     }
 
     @Override
-    public Profesor actualizarProfesor(int id) {
-        return null;
+    public Profesor actualizarProfesor(int id, Profesor profesorActualizar) {
+        Profesor profesorEncontrado = objProfesorRepo.findById(id).orElse(null);
+        profesorEncontrado.setNombres(profesorActualizar.getNombres());
+        profesorEncontrado.setApellido1(profesorActualizar.getApellido1());
+        profesorEncontrado.setApellido2(profesorActualizar.getApellido2());
+        profesorEncontrado.setListaCursos(profesorActualizar.getListaCursos());
+        return objProfesorRepo.save(profesorEncontrado);
     }
 
     @Override
@@ -34,11 +39,16 @@ public class ProfesorServiceImpl implements IProfesorService {
 
     @Override
     public Profesor devolverProfesorId(int id) {
-        return null;
+        return objProfesorRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarProfesor(int id) {
+        objProfesorRepo.deleteById(id);
+    }
 
+    @Override
+    public void eliminarProfesor(Profesor profesor) {
+        objProfesorRepo.delete(profesor);
     }
 }

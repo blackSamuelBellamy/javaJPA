@@ -21,8 +21,12 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public Usuario actualizarUsuario(int id) {
-        return null;
+    public Usuario actualizarUsuario(int id, Usuario usuarioActualizar) {
+        Usuario usuarioEncontrado = objUsuarioRepo.findById(id).orElse(null);
+        usuarioEncontrado.setNombreUsuario(usuarioActualizar.getNombreUsuario());
+        usuarioEncontrado.setRol(usuarioActualizar.getRol());
+        usuarioEncontrado.setContrasena(usuarioActualizar.getRol());
+        return objUsuarioRepo.save(usuarioEncontrado);
     }
 
     @Override
@@ -34,11 +38,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public Usuario devolverUsuarioId(int id) {
-        return null;
+        return objUsuarioRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarUsuario(int id) {
+        objUsuarioRepo.deleteById(id);
+    }
 
+    @Override
+    public void eliminarUsuario(Usuario usuario) {
+        objUsuarioRepo.delete(usuario);
     }
 }
