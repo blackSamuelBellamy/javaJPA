@@ -18,19 +18,19 @@ public class CursoRestController {
         return objCursoService.crearCurso(curso);
     }
 
-    @PostMapping
-    public Curso actualizarCurso(@RequestBody int id, Curso curso){
+    @PutMapping("/{id}")
+    public Curso actualizarCurso(@PathVariable int id,@RequestBody Curso curso){
         return objCursoService.actualizarCurso(id, curso);
     }
     @GetMapping
     public List<Curso> listarCursos() {return objCursoService.listarCursos();}
 
-    @PostMapping
-    public Curso devolverCursoId(@RequestBody int id){return objCursoService.devolverCursoId(id);}
+    @GetMapping("/{id}")
+    public Curso devolverCursoId(@PathVariable int id){return objCursoService.devolverCursoId(id);}
 
-    @PostMapping
-    public void eliminarCurso(@RequestBody int id){objCursoService.eliminarCurso(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarCurso(@PathVariable int id){objCursoService.eliminarCurso(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarCurso2(@RequestBody Curso curso){objCursoService.elminarCurso2(curso);}
 }

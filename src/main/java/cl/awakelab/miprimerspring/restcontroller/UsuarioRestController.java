@@ -21,18 +21,20 @@ public class UsuarioRestController {
         return objUsuarioService.listarUsuario();
     }
 
-    @PostMapping
-    public Usuario actualizarUsuario(@RequestBody int id, Usuario usuario){
+    @PutMapping("/{id}")
+    public Usuario actualizarUsuario(@PathVariable int id,@RequestBody Usuario usuario){
         return objUsuarioService.actualizarUsuario(id, usuario);
     }
 
-    @PostMapping
-    public Usuario devolverUsuarioId(@RequestBody int id){
+    @GetMapping("/{id}")
+    public Usuario devolverUsuarioId(@PathVariable int id){
         return objUsuarioService.devolverUsuarioId(id);
     }
-    public void eliminarUsuario(@RequestBody int id) {
+    @DeleteMapping("/{id}")
+    public void eliminarUsuario(@PathVariable int id) {
         objUsuarioService.eliminarUsuario(id);
     }
+    @DeleteMapping
     public void eliminarUsuario2(@RequestBody Usuario usuario) {objUsuarioService.eliminarUsuario2(usuario);}
 
 }

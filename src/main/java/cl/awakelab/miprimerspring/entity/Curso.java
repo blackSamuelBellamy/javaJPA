@@ -24,7 +24,7 @@ public class Curso {
     @Column(length = 1)
     private String nombreCurso;
 
-    @ManyToMany(mappedBy = "ListaCursos")
+    @ManyToMany(mappedBy = "listaCursos")
     private List<Profesor> listaProfesores;
 
     @OneToMany(mappedBy = "cursoAsignado")

@@ -17,20 +17,20 @@ public class ProfesorRestController {
     public Profesor crearProfesor(@RequestBody Profesor profesor) {
         return objProfesorService.crearProfesor((profesor));
     }
-    @PostMapping
-    public Profesor actualizarProfesor(@RequestBody int id, Profesor profesor){
+    @PutMapping("/{id}")
+    public Profesor actualizarProfesor(@PathVariable int id,@RequestBody Profesor profesor){
         return objProfesorService.actualizarProfesor(id, profesor);
     }
     @GetMapping
     public List<Profesor> listarProfesores(){return objProfesorService.listarProfesores();}
 
-    @PostMapping
-    public Profesor devolverProfesorId(@RequestBody int id){return objProfesorService.devolverProfesorId(id);}
+    @GetMapping("/{id}")
+    public Profesor devolverProfesorId(@PathVariable int id){return objProfesorService.devolverProfesorId(id);}
 
-    @PostMapping
-    public void eliminarProfesor(@RequestBody int id){objProfesorService.eliminarProfesor(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarProfesor(@PathVariable int id){objProfesorService.eliminarProfesor(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarProfesor2(@RequestBody Profesor profesor){objProfesorService.eliminarProfesor2(profesor);}
 
 
