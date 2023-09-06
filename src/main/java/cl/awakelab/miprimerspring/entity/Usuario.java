@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
     @Column(nullable = false, length = 75)
     private String nombreUsuario;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String contrasena;
 
     @Column(nullable = false, length = 30)

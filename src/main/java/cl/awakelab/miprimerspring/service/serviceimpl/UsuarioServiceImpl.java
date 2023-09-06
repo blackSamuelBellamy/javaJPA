@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
         Usuario usuarioEncontrado = objUsuarioRepo.findById(id).orElse(null);
         usuarioEncontrado.setNombreUsuario(usuarioActualizar.getNombreUsuario());
         usuarioEncontrado.setRol(usuarioActualizar.getRol());
-        usuarioEncontrado.setContrasena(usuarioActualizar.getRol());
+        usuarioEncontrado.setContrasena(usuarioActualizar.getContrasena());
         return objUsuarioRepo.save(usuarioEncontrado);
     }
 
